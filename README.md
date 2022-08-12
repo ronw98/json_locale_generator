@@ -13,22 +13,6 @@ and the Flutter guide for
 
 A generation tool that builds a class to get your json locale paths from dart code.
 
-## Features
-Converts a json such as
-```json
-{
-  "ok": "OK",
-  "core": {
-    "app_name": "WordSing Battle"
-  },
-  "home": {
-    "title": "No card in the deck"
-  }
-}
-```
-To dart code where each path can be accessed easily.
-For above example, doing `GeneratedClass.core.app_name` will return the String `'core.app_name'`
-
 ## Getting started
 
 1. Add dependencies in your `pubspec.yaml`:
@@ -56,3 +40,20 @@ to run only json_locale_generator without other eventual builder packages. The f
 import 'jsons.dart';
 FlutterI18n.translate(context, Locale.core.app_title);
 ```
+
+## Features
+Converts a json such as
+```json
+{
+  "ok": "OK",
+  "core": {
+    "app_name": "WordSing Battle"
+  },
+  "home": {
+    "title": "No card in the deck"
+  }
+}
+```
+To dart code where each path can be accessed easily.
+For above example, doing `GeneratedClass.core.app_name` will return the String `'core.app_name'`
+
