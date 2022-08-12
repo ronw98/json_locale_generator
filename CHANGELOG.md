@@ -1,3 +1,6 @@
+## 0.0.3
+* Ignore warnings in generated file
+
 ## 0.0.2
 * Improve pub score
 

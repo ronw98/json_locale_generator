@@ -18,7 +18,7 @@ A generation tool that builds a class to get your json locale paths from dart co
 1. Add dependencies in your `pubspec.yaml`:
 ```yaml
 dev_dependencies:
-  json_locale_generator: ^0.0.1
+  json_locale_generator: ^0.0.3
   build_runner: ^2.0.4
 ```
 
