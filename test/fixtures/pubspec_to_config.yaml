@@ -1,0 +1,6 @@
+json_to_dart:
+  sample_files:
+    - source: assets/en.json
+      class_name: LocaleMap
+    - source: assets/fr.json
+      class_name: LocaleMapFr

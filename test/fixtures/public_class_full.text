@@ -1,0 +1,17 @@
+class TestClass {
+  static const String staticField = 'staticField';
+  static const _TestClassStaticClassField staticClassField = _TestClassStaticClassField();
+}
+
+class _TestClassStaticClassField {
+  const _TestClassStaticClassField();
+
+  final String subClassField = 'staticClassField.subClassField';
+  final __TestClassStaticClassFieldSubClassClassField subClassClassField = const __TestClassStaticClassFieldSubClassClassField();
+}
+
+class __TestClassStaticClassFieldSubClassClassField {
+  const __TestClassStaticClassFieldSubClassClassField();
+
+  final String lastField = 'staticClassField.subClassClassField.lastField';
+}

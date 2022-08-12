@@ -1,0 +1,9 @@
+{
+  "ok": "OK",
+  "core": {
+    "app_name": "WordSing Battle"
+  },
+  "home": {
+    "title": "No card in the deck"
+  }
+}

@@ -1,0 +1,17 @@
+name: example
+description: A new Flutter application.
+version: "1.0.0"
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dev_dependencies:
+  json_locale_generator:
+    path: ../
+  build_runner: ^2.0.4
+
+json_to_dart:
+  sample_files:
+    - source: assets/en.json
+      class_name: Locale

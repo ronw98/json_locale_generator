@@ -1,0 +1,11 @@
+class SubClass {
+  const SubClass();
+
+  final String stringField = 'sub_class.stringField';
+  final _SubClassClassField classField = const _SubClassClassField();
+}
+
+class _SubClassClassField {
+  const _SubClassClassField();
+
+}
