@@ -18,7 +18,7 @@ A generation tool that builds a class to get your json locale paths from dart co
 1. Add dependencies in your `pubspec.yaml`:
 ```yaml
 dev_dependencies:
-  json_locale_generator: ^0.0.3
+  json_locale_generator: ^0.1.0
   build_runner: ^2.0.4
 ```
 
@@ -33,8 +33,7 @@ json_to_dart:
       class_name: Other
 ```
 
-3. Execute `[dart|flutter] pub run build_runner build` or `[dart|flutter] pub run json_locale_generator:generate`
-to run only json_locale_generator without other eventual builder packages. The file `jsons.dart` will be generated into `lib/jsons.dart`
+3. Execute `[dart|flutter] pub run build_runner build`. The file `jsons.dart` will be generated into `lib/jsons.dart`
 4. Import `jsons.dart` and start using it:
 ```dart
 import 'jsons.dart';

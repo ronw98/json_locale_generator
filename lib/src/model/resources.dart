@@ -1,3 +1,5 @@
+import 'package:build/build.dart';
+
 class Resources {
   final List<JsonAsset> jsonAssets;
 
@@ -5,15 +7,11 @@ class Resources {
 }
 
 class JsonAsset {
-  final String name;
-  final String path;
-  final String fileUri;
+  final AssetId id;
   final String outputClass;
 
   JsonAsset({
-    required this.name,
-    required this.path,
-    required this.fileUri,
+    required this.id,
     required this.outputClass,
   });
 }

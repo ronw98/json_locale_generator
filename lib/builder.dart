@@ -8,10 +8,11 @@ import 'package:json_locale_generator/src/model/resources.dart';
 import 'package:json_locale_generator/src/utils.dart';
 import 'package:yaml/yaml.dart';
 
-Resources createResources(Config config) {
+Resources createResources(String package, Config config) {
   final jsonAssets = config.jsonFileArguments
       .map(
-        (jsonFileArgument) => convertJsonFileArgumentToAsset(jsonFileArgument),
+        (jsonFileArgument) =>
+            convertJsonFileArgumentToAsset(package, jsonFileArgument),
       )
       .toList();
   return Resources(jsonAssets: jsonAssets);
@@ -24,18 +25,18 @@ class JsonBuilder extends Builder {
 
     final output = AssetId(input.package, 'lib/jsons.dart');
 
-    final configId = AssetId(input.package, 'pubspec.yaml');
+    final pubspecFile = AssetId(input.package, 'pubspec.yaml');
 
     final yamlRaw = safeCast<YamlMap>(
       loadYaml(
-        await buildStep.readAsString(configId),
+        await buildStep.readAsString(pubspecFile),
       ),
     );
 
     final config = Config.fromPubspec(yamlRaw ?? YamlMap());
-    final resources = createResources(config);
+    final resources = createResources(input.package, config);
 
-    final generated = generate(resources);
+    final generated = generate(buildStep, resources);
 
     await buildStep.writeAsString(output, generated);
   }
@@ -47,6 +48,6 @@ class JsonBuilder extends Builder {
 }
 
 Builder builder(BuilderOptions builderOptions) {
-  log.info('creating JsonBuilder()');
+  log.info('creating JsonBuilder');
   return JsonBuilder();
 }

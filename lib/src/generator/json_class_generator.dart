@@ -1,14 +1,14 @@
 import 'dart:convert';
-import 'dart:io';
 
+import 'package:build/build.dart';
 import 'package:json_locale_generator/src/model/resources.dart';
 import 'package:json_locale_generator/src/utils.dart';
 
-String generateJsonAsset(JsonAsset asset) {
+Future<String> generateJsonAsset(BuildStep buildStep, JsonAsset asset) async {
   return generateParentClass(
     asset.outputClass,
     jsonDecode(
-      File(asset.path).readAsStringSync(),
+      await buildStep.readAsString(asset.id),
     ) as Map<String, dynamic>,
   );
 }
