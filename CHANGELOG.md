@@ -1,3 +1,7 @@
+## 0.1.3
+
+* Update readme
+
 ## 0.1.2
 
 * *Fix*: Readme and changelog

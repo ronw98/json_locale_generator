@@ -19,7 +19,7 @@ A generation tool that builds a class to get your json locale paths from dart co
 
 ```yaml
 dev_dependencies:
-  json_locale_generator: ^0.1.2
+  json_locale_generator: ^0.1.3
   build_runner: ^2.0.4
 ```
 
@@ -43,6 +43,13 @@ json_to_dart:
 import 'jsons.dart';
 
 FlutterI18n.translate(context, Locale.core.app_title);
+```
+
+5. To avoid warnings in the generated code, add `lib/jsons.dart` to your `analysis_options.yaml` file:
+```yaml
+analyzer:
+  exclude:
+    - lib/jsons.dart
 ```
 
 ## Features
