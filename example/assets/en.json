@@ -1,7 +1,11 @@
 {
   "ok": "OK",
   "core": {
-    "app_name": "WordSing Battle"
+    "app_name": "WordSing Battle",
+    "word-0": "Word",
+    "word-1": "Word",
+    "word-2": "Words",
+    "continue": "Continue"
   },
   "home": {
     "title": "No card in the deck"

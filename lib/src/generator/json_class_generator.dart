@@ -68,10 +68,11 @@ String generateNonStaticField(
 ) {
   if (value is String) {
     final newPath = currentPath == null ? fieldName : '$currentPath.$fieldName';
-    return '''final String $fieldName = '$newPath';''';
+    return '''final String ${fieldName.sanitize} = '$newPath';''';
   }
-  final fieldType = fieldAndParentClassToClassName(fieldName, parentClassName);
-  return '''final $fieldType $fieldName = const $fieldType();''';
+  final fieldType =
+      fieldAndParentClassToClassName(fieldName, parentClassName).sanitize;
+  return '''final $fieldType ${fieldName.sanitize} = const $fieldType();''';
 }
 
 String generateStaticField(
@@ -82,10 +83,11 @@ String generateStaticField(
 ) {
   if (value is String) {
     final newPath = currentPath == null ? fieldName : '$currentPath.$fieldName';
-    return '''static const String $fieldName = '$newPath';''';
+    return '''static const String ${fieldName.sanitize} = '$newPath';''';
   }
-  final fieldType = fieldAndParentClassToClassName(fieldName, parentClassName);
-  return '''static const $fieldType $fieldName = $fieldType();''';
+  final fieldType =
+      fieldAndParentClassToClassName(fieldName, parentClassName).sanitize;
+  return '''static const $fieldType ${fieldName.sanitize} = $fieldType();''';
 }
 
 String fieldAndParentClassToClassName(

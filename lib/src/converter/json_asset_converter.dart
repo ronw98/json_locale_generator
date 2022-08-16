@@ -6,7 +6,8 @@ import 'package:json_locale_generator/src/model/resources.dart';
 import 'package:json_locale_generator/src/utils.dart';
 import 'package:path/path.dart';
 
-JsonAsset convertJsonFileArgumentToAsset(String package, JsonFileArgument argument) {
+JsonAsset convertJsonFileArgumentToAsset(
+    String package, JsonFileArgument argument) {
   final jsonFile = File(argument.jsonFilePath);
   final assetName = basenameWithoutExtension(jsonFile.path);
   return JsonAsset(
