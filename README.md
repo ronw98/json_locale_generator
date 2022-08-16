@@ -19,7 +19,7 @@ A generation tool that builds a class to get your json locale paths from dart co
 
 ```yaml
 dev_dependencies:
-  json_locale_generator: ^0.1.1
+  json_locale_generator: ^0.1.2
   build_runner: ^2.0.4
 ```
 
@@ -63,10 +63,13 @@ Converts a json such as
 
 To dart code where each path can be accessed easily. For above example,
 doing `GeneratedClass.core.app_name` will return the String `'core.app_name'`
+
 JsonKeys that are keywords in dart (`continue`, `if`...) are generated with a trailing
 underscore (`continue_`, `if_`)
+
 JsonKeys that have non proper characters in their names (non alphanum + _ characters) will have
 these characters replaced by '_'
+
 JsonKeys that start with a number will have this number put at the end, prefixed by an
 underscore: `0word` will be `word_0` in dart code
 

@@ -1,7 +1,11 @@
+## 0.1.2
+
+* *Fix*: Readme and changelog
+
 ## 0.1.1
 
-**Fix*: Keywords and '-' in json keys caused errors in generated dart code
-*Improve pub score
+* *Fix*: Keywords and '-' in json keys caused errors in generated dart code
+* Improve pub score
 
 ## 0.1.0
 
