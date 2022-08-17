@@ -1,3 +1,7 @@
+## 0.2.1
+
+* Improve pub score
+
 ## 0.2.0
 
 * **Feature**: Handle plural values with regexp matching

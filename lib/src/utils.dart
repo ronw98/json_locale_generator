@@ -1,5 +1,3 @@
-
-
 T? safeCast<T>(dynamic obj) {
   if (obj == null) {
     return null;
@@ -19,30 +17,19 @@ extension StringExt on String {
     String res = this;
     final captureLeadingNumbers = RegExp('[^a-zA-Z_]*');
     final match = captureLeadingNumbers.matchAsPrefix(this);
+
+    // Prefix is all the leading characters that can't lead a dart variable
     final prefix = match?[0];
     if (prefix?.isNotEmpty ?? false) {
       res = res.replaceFirst(prefix!, '');
-      // final nonNumericStart = RegExp('[^0-9]*').matchAsPrefix(prefix);
-      // final nonNumericPrefixEnd =
-      //     RegExp(r'[^0-9]+$').allMatches(prefix).lastOrNull;
-      String cleanPrefix = prefix;
-      // Remove trailing illegal characters
-      // if (nonNumericPrefixEnd?[0]?.isNotEmpty ?? false) {
-      //   cleanPrefix = cleanPrefix.replaceRange(
-      //     nonNumericPrefixEnd!.start,
-      //     nonNumericPrefixEnd.end,
-      //     '',
-      //   );
-      // }
-      cleanPrefix =
-          cleanPrefix.replaceAllMapped(RegExp('^[^0-9]*'), (match) => '');
-      cleanPrefix =
-          cleanPrefix.replaceAllMapped(RegExp(r'[^0-9]*$'), (match) => '');
-      // Check if the key starts with non alphanum characters and if so remove them
-      // if (nonNumericStart?[0]?.isNotEmpty ?? false) {
-      //   cleanPrefix = prefix.replaceFirst(nonNumericStart![0]!, '');
-      // }
-      cleanPrefix = cleanPrefix.replaceNonAlphaNumChars();
+
+      final String cleanPrefix = prefix
+          // Remove leading non numeric leading characters
+          .replaceAllMapped(RegExp('^[^0-9]*'), (match) => '')
+          // Remove non numeric trailing characters
+          .replaceAllMapped(RegExp(r'[^0-9]*$'), (match) => '')
+          // Clean illegal characters for a dart variable
+          .replaceNonAlphaNumChars();
 
       res = '${res}_$cleanPrefix';
     }
