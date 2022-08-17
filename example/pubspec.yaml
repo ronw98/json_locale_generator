@@ -15,3 +15,4 @@ json_to_dart:
   sample_files:
     - source: assets/en.json
       class_name: Locale
+      plural_matcher: "-[0-9]+$"

@@ -69,4 +69,21 @@ void main() {
 
     expect(result, fixture('public_class_full.text'));
   });
+
+  test('Generate public class with unsafe words', () {
+    final result = generateParentClass(
+      'TestClass',
+      {
+        'break': 'value',
+        'staticClassField': {
+          '12-98-subClassField': 'value',
+          '10-invalidField': {
+            '/12-&lastField': 'value',
+          }
+        }
+      },
+    );
+
+    expect(result, fixture('public_class_unsafe.text'));
+  });
 }

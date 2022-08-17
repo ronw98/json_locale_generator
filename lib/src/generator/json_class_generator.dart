@@ -1,17 +1,4 @@
-import 'dart:convert';
-
-import 'package:build/build.dart';
-import 'package:json_locale_generator/src/model/resources.dart';
 import 'package:json_locale_generator/src/utils.dart';
-
-Future<String> generateJsonAsset(BuildStep buildStep, JsonAsset asset) async {
-  return generateParentClass(
-    asset.outputClass,
-    jsonDecode(
-      await buildStep.readAsString(asset.id),
-    ) as Map<String, dynamic>,
-  );
-}
 
 String generateParentClass(String className, Map<String, dynamic> json) {
   final fields = json.entries.map(
@@ -94,4 +81,4 @@ String fieldAndParentClassToClassName(
   String fieldName,
   String parentClassName,
 ) =>
-    '_$parentClassName${fieldName.capitalize()}';
+    '_$parentClassName${fieldName.replaceNonAlphaNumChars().capitalize()}';

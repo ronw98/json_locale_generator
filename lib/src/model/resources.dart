@@ -9,9 +9,11 @@ class Resources {
 class JsonAsset {
   final AssetId id;
   final String outputClass;
+  final String? pluralMatcher;
 
   JsonAsset({
     required this.id,
     required this.outputClass,
+    this.pluralMatcher,
   });
 }

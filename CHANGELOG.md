@@ -1,3 +1,9 @@
+## 0.2.0
+
+* **Feature**: Handle plural values with regexp matching
+* *Fix*: Clean and validate input json files to avoid errors in generated dart code
+* Improve test coverage
+
 ## 0.1.3
 
 * Update readme

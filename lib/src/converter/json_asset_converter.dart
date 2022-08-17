@@ -7,11 +7,14 @@ import 'package:json_locale_generator/src/utils.dart';
 import 'package:path/path.dart';
 
 JsonAsset convertJsonFileArgumentToAsset(
-    String package, JsonFileArgument argument) {
+  String package,
+  JsonFileArgument argument,
+) {
   final jsonFile = File(argument.jsonFilePath);
   final assetName = basenameWithoutExtension(jsonFile.path);
   return JsonAsset(
     id: AssetId(package, argument.jsonFilePath),
     outputClass: argument.className ?? assetName.capitalize(),
+    pluralMatcher: argument.pluralMatcher,
   );
 }

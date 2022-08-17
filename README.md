@@ -19,7 +19,7 @@ A generation tool that builds a class to get your json locale paths from dart co
 
 ```yaml
 dev_dependencies:
-  json_locale_generator: ^0.1.3
+  json_locale_generator: ^0.2.0
   build_runner: ^2.0.4
 ```
 
@@ -45,7 +45,9 @@ import 'jsons.dart';
 FlutterI18n.translate(context, Locale.core.app_title);
 ```
 
-5. To avoid warnings in the generated code, add `lib/jsons.dart` to your `analysis_options.yaml` file:
+5. To avoid warnings in the generated code, add `lib/jsons.dart` to your `analysis_options.yaml`
+   file:
+
 ```yaml
 analyzer:
   exclude:
@@ -80,3 +82,46 @@ these characters replaced by '_'
 JsonKeys that start with a number will have this number put at the end, prefixed by an
 underscore: `0word` will be `word_0` in dart code
 
+### Plural values
+
+Group keys using a regexp. Set the property `plural_match` of a source to a regexp. Sibling keys
+that have a part matching this regexp will be grouped under the same non-matching part of the
+regexp.
+
+#### Example
+
+```json
+{
+  "word-0": "Word",
+  "word-1": "Word",
+  "word-2": "Words"
+}
+```
+
+is converted to
+
+```dart
+Locale {
+
+static const String word = 'word';}
+```
+
+provided your `pubspec.yaml` file is
+
+````yaml
+json_to_dart:
+  sample_files:
+    - source: <source_file>
+      class_name: Locale
+      plural_matcher: "-[0-9]+$"
+````
+
+### Json restrictions:
+
+- Json keys cannot contain `.` `$` and `\`
+- Non alphabetic (or underscores) key starts are sent back at the end of the generated dart
+  property: `12key` json key turns to `key_12` dart property
+- Characters that are neither letters, numbers no `_` are changed to `_` in generated dart property
+  name: `key-part` json key turns to `key_part` dart property
+- Json keys that are dart reserved keywords are followed by `_` in property name: `break` json key
+  turns to `break_` dart property

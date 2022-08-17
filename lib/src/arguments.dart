@@ -29,6 +29,7 @@ class Config {
               (fileElement) => JsonFileArgument(
                 jsonFilePath: fileElement['source'] as String,
                 className: fileElement['class_name'] as String?,
+                pluralMatcher: fileElement['plural_matcher'] as String?,
               ),
             )
             .toList() ??
@@ -43,9 +44,11 @@ class Config {
 class JsonFileArgument {
   final String jsonFilePath;
   final String? className;
+  final String? pluralMatcher;
 
   JsonFileArgument({
     required this.jsonFilePath,
     required this.className,
+    required this.pluralMatcher,
   });
 }
