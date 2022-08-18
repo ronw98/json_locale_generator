@@ -1,3 +1,7 @@
+## 0.2.3
+
+* *Fix*: Fix mistake making the builder not usable
+
 ## 0.2.2
 
 * *Fix*: Fix cleaning changing json key in generated strings
