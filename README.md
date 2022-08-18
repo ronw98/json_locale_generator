@@ -19,7 +19,7 @@ A generation tool that builds a class to get your json locale paths from dart co
 
 ```yaml
 dev_dependencies:
-  json_locale_generator: ^0.2.1
+  json_locale_generator: ^0.2.2
   build_runner: ^2.0.4
 ```
 

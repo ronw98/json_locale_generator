@@ -7,11 +7,11 @@ class _TestClassStaticClassField {
   const _TestClassStaticClassField();
 
   final String subClassField_12_98 = 'staticClassField.12-98-subClassField';
-  final __TestClassStaticClassField10_invalidField invalidField_10 = const __TestClassStaticClassField10_invalidField();
+  final __TestClassStaticClassFieldInvalidField_10 invalidField_10 = const __TestClassStaticClassFieldInvalidField_10();
 }
 
-class __TestClassStaticClassField10_invalidField {
-  const __TestClassStaticClassField10_invalidField();
+class __TestClassStaticClassFieldInvalidField_10 {
+  const __TestClassStaticClassFieldInvalidField_10();
 
   final String lastField_12 = 'staticClassField.10-invalidField./12-&lastField';
 }

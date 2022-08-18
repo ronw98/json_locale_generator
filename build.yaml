@@ -1,8 +1,0 @@
-builders:
-  json_locale_generator:
-    import: "package:json_locale_generator/builder.dart"
-    builder_factories:
-      - "builder"
-    build_extensions: { '.json': [ '.json.dart' ] }
-    auto_apply: root_package
-    build_to: source

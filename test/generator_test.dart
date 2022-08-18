@@ -1,4 +1,6 @@
+import 'package:json_locale_generator/src/converter/json_parser.dart';
 import 'package:json_locale_generator/src/generator/json_class_generator.dart';
+import 'package:json_locale_generator/src/model/generation_key.dart';
 import 'package:test/test.dart';
 
 import 'fixtures/fixtures.dart';
@@ -7,28 +9,51 @@ void main() {
   group('Generate field', () {
     test('Generate one non static String field', () {
       expect(
-        generateNonStaticField('ClassName', 'value', 'class_name', 'value'),
+        generateNonStaticField(
+          'ClassName',
+          const GenerationKey(dartPropertyName: 'value', jsonKey: 'value'),
+          'class_name',
+          'value',
+        ),
         "final String value = 'class_name.value';",
       );
     });
 
     test('Generate one non static complex field', () {
       expect(
-        generateNonStaticField('ParentClass', 'field', 'parent_class', {}),
+        generateNonStaticField(
+          'ParentClass',
+          const GenerationKey(dartPropertyName: 'field', jsonKey: 'field'),
+          'parent_class',
+          {},
+        ),
         'final _ParentClassField field = const _ParentClassField();',
       );
     });
 
     test('Generate one static String field', () {
       expect(
-        generateStaticField('ClassName', 'value', null, 'value'),
+        generateStaticField(
+          'ClassName',
+          const GenerationKey(dartPropertyName: 'value', jsonKey: 'value'),
+          null,
+          'value',
+        ),
         "static const String value = 'value';",
       );
     });
 
     test('Generate one static complex field', () {
       expect(
-        generateStaticField('ParentClass', 'field', '', {}),
+        generateStaticField(
+          'ParentClass',
+          const GenerationKey(
+            dartPropertyName: 'field',
+            jsonKey: 'field',
+          ),
+          '',
+          {},
+        ),
         'static const _ParentClassField field = _ParentClassField();',
       );
     });
@@ -44,10 +69,13 @@ void main() {
       final result = generateSubClass(
         'SubClass',
         'sub_class',
-        {
-          'stringField': 'value',
-          'classField': <String, dynamic>{},
-        },
+        jsonCleaner(
+          {
+            'stringField': 'value',
+            'classField': <String, dynamic>{},
+          },
+          null,
+        ),
       );
       expect(result, fixture('generated_subclass.text'));
     });
@@ -56,15 +84,18 @@ void main() {
   test('Generate public class', () {
     final result = generateParentClass(
       'TestClass',
-      {
-        'staticField': 'value',
-        'staticClassField': {
-          'subClassField': 'value',
-          'subClassClassField': {
-            'lastField': 'value',
+      jsonCleaner(
+        {
+          'staticField': 'value',
+          'staticClassField': {
+            'subClassField': 'value',
+            'subClassClassField': {
+              'lastField': 'value',
+            }
           }
-        }
-      },
+        },
+        null,
+      ),
     );
 
     expect(result, fixture('public_class_full.text'));
@@ -73,15 +104,18 @@ void main() {
   test('Generate public class with unsafe words', () {
     final result = generateParentClass(
       'TestClass',
-      {
-        'break': 'value',
-        'staticClassField': {
-          '12-98-subClassField': 'value',
-          '10-invalidField': {
-            '/12-&lastField': 'value',
+      jsonCleaner(
+        {
+          'break': 'value',
+          'staticClassField': {
+            '12-98-subClassField': 'value',
+            '10-invalidField': {
+              '/12-&lastField': 'value',
+            }
           }
-        }
-      },
+        },
+        null,
+      ),
     );
 
     expect(result, fixture('public_class_unsafe.text'));

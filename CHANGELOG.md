@@ -1,3 +1,7 @@
+## 0.2.2
+
+* *Fix*: Fix cleaning changing json key in generated strings
+
 ## 0.2.1
 
 * Improve pub score
