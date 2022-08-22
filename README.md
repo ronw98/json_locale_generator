@@ -19,7 +19,7 @@ A generation tool that builds a class to get your json locale paths from dart co
 
 ```yaml
 dev_dependencies:
-  json_locale_generator: ^0.2.3
+  json_locale_generator: ^0.2.4
   build_runner: ^2.0.4
 ```
 
@@ -102,8 +102,8 @@ is converted to
 
 ```dart
 Locale {
-
-static const String word = 'word';}
+  static const String word = 'word';
+}
 ```
 
 provided your `pubspec.yaml` file is

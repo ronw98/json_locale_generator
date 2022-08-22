@@ -1,3 +1,7 @@
+## 0.2.4
+
+* Add `const` private constructor to generated public classes to prevent instantiating them
+
 ## 0.2.3
 
 * *Fix*: Fix mistake making the builder not usable

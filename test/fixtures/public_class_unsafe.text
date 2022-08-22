@@ -1,4 +1,6 @@
 class TestClass {
+  const TestClass._();
+
   static const String break_ = 'break';
   static const _TestClassStaticClassField staticClassField = _TestClassStaticClassField();
 }

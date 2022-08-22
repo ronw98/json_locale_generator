@@ -17,6 +17,8 @@ String generateParentClass(String className, Map<GenerationKey, dynamic> json) {
       );
   return '''
 class $className {
+  const $className._();
+
 ${fields.isNotEmpty ? '''  ${fields.join('\n  ')}''' : ''}
 }
 
