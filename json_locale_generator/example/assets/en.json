@@ -8,6 +8,6 @@
     "continue": "Continue"
   },
   "home": {
-    "title": "No card in the eck"
+    "title": "There are {card_number} in {deckname} and {other_param}."
   }
 }

@@ -17,17 +17,37 @@ Map<GenerationKey, dynamic> jsonCleaner(
       generationKey = GenerationKey(
         dartPropertyName: wordPluralRoot.sanitize,
         jsonKey: wordPluralRoot,
+        plural: entry.key.contains(findIgnore),
       );
     } else {
       generationKey = GenerationKey(
         dartPropertyName: entry.key.sanitize,
         jsonKey: entry.key,
+        plural: false,
       );
     }
-    final generationValue = entry.value is Map<String, dynamic>
-        ? jsonCleaner(entry.value as Map<String, dynamic>, ignorePart)
-        : entry.value;
-    res[generationKey] = generationValue;
+    dynamic generationValue;
+    if (entry.value is Map<String, dynamic>) {
+      generationValue = jsonCleaner(
+        entry.value as Map<String, dynamic>,
+        ignorePart,
+      );
+    } else if (entry.value is String) {
+      final params = RegExp(r'\{(.*?)\}')
+          .allMatches(entry.value as String)
+          .map(
+            (match) => match.group(1),
+          )
+          .whereType<String>();
+      generationValue = GenerationValue(
+        params: params
+            .map((param) => GenerationParam(param.sanitize, param))
+            .toList(),
+      );
+    }
+    if (generationValue != null) {
+      res[generationKey] = generationValue;
+    }
   }
   return res;
 }
