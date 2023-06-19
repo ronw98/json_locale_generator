@@ -1,3 +1,9 @@
+## 1.0.0
+
+* **Breaking**:
+  * Leaf generation generates methods returning `Translatable` objects.
+  * This package can no longer be used as a standalone and mus tbe used with [json_locale](https://pub.dev/packages/json_locale)
+
 ## 0.2.4
 
 * Add `const` private constructor to generated public classes to prevent instantiating them

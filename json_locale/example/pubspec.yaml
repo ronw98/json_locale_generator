@@ -13,7 +13,7 @@ dependencies:
 dev_dependencies:
   json_locale_generator:
     path: ../../json_locale_generator
-  build_runner: ^2.0.4
+  build_runner: ^2.4.5
 
 json_to_dart:
   sample_files:
