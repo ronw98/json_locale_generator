@@ -57,8 +57,6 @@ Code generateMethodBody(
     return Code('''
     return TranslatablePlural(
   '$entryPath',
-  {
-  },
   cardinality,
 );''');
   }

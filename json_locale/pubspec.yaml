@@ -1,0 +1,14 @@
+name: json_locale
+description: A generation tool that builds a class to get your json locale paths from dart code
+version: 1.0.0
+homepage: https://github.com/ronw98/json_locale_generator
+repository: https://github.com/ronw98/json_locale_generator
+issue_tracker: https://github.com/ronw98/json_locale_generator/issues
+
+environment:
+  sdk: '>=2.17.0 <4.0.0'
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0

@@ -45,8 +45,6 @@ List<Class> generateParentClass(
   );
 
   final generatedClasses = <Class>[];
-  generatedClasses.add(generateTranslatableClass());
-  generatedClasses.add(generateTranslatablePluralClass());
   generatedClasses.add(
     Class(
       (c) => c
@@ -66,88 +64,4 @@ List<Class> generateParentClass(
   generatedClasses.addAll(nodeClasses);
 
   return generatedClasses;
-}
-
-Class generateTranslatableClass() {
-  return Class(
-    (c) => c
-      ..name = 'Translatable'
-      ..constructors.add(
-        Constructor(
-          (c) => c
-            ..requiredParameters.addAll(
-              [
-                Parameter(
-                  (p) => p
-                    ..name = 'key'
-                    ..toThis = true,
-                ),
-                Parameter(
-                  (p) => p
-                    ..name = 'params'
-                    ..toThis = true,
-                ),
-              ],
-            ),
-        ),
-      )
-      ..fields.addAll(
-        [
-          Field(
-            (f) => f
-              ..modifier = FieldModifier.final$
-              ..name = 'key'
-              ..type = const Reference('String'),
-          ),
-          Field(
-            (f) => f
-              ..modifier = FieldModifier.final$
-              ..name = 'params'
-              ..type = const Reference('Map<String, String>'),
-          ),
-        ],
-      ),
-  );
-}
-
-Class generateTranslatablePluralClass() {
-  return Class(
-    (c) => c
-      ..name = 'TranslatablePlural'
-      ..extend = const Reference('Translatable')
-      ..constructors.add(
-        Constructor(
-          (c) => c
-            ..requiredParameters.addAll(
-              [
-                Parameter(
-                  (p) => p
-                    ..name = 'key'
-                    ..toSuper = true,
-                ),
-                Parameter(
-                  (p) => p
-                    ..name = 'params'
-                    ..toSuper = true,
-                ),
-                Parameter(
-                  (p) => p
-                    ..name = 'cardinality'
-                    ..toThis = true,
-                ),
-              ],
-            ),
-        ),
-      )
-      ..fields.addAll(
-        [
-          Field(
-                (f) => f
-              ..modifier = FieldModifier.final$
-              ..name = 'cardinality'
-              ..type = const Reference('int'),
-          ),
-        ],
-      ),
-  );
 }

@@ -34,6 +34,7 @@ Future<String> generate(BuildStep buildStep, Resources res) async {
   }
   final fileToWrite = Library(
     (l) {
+      l.body.add(Directive.import('package:json_locale/json_locale.dart'));
       for (final entry in parsedJsons) {
         l.body.addAll(
           generateParentClass(

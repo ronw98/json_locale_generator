@@ -6,9 +6,13 @@ publish_to: none
 environment:
   sdk: ">=2.17.0 <3.0.0"
 
+dependencies:
+  json_locale:
+    path: ../
+
 dev_dependencies:
   json_locale_generator:
-    path: ../
+    path: ../../json_locale_generator
   build_runner: ^2.0.4
 
 json_to_dart:
