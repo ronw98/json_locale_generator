@@ -1,19 +1,19 @@
 name: json_locale_generator
 description: A generation tool that builds a class to get your json locale paths from dart code
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/ronw98/json_locale_generator
 repository: https://github.com/ronw98/json_locale_generator
 issue_tracker: https://github.com/ronw98/json_locale_generator/issues
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=2.17.0 <4.0.0"
 
 dependencies:
   args: '^2.0.0'
   build: '>=2.0.0 <3.0.0'
   build_config: '>=1.0.0 <2.0.0'
   code_builder: ^4.5.0
-  collection: ^1.17.2
+  collection: ^1.17.1
   dart_style: ^2.3.1
   equatable: ^2.0.5
   glob: ^2.1.2

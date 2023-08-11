@@ -41,6 +41,7 @@ json_to_dart:
    into `lib/jsons.dart`
 
 4. Create extension methods:
+
 ```dart
 import 'package:json_locale/json_locale.dart';
 
@@ -126,13 +127,23 @@ class Locale {
 
 provided your `pubspec.yaml` file is
 
-````yaml
+```yaml
 json_to_dart:
   sample_files:
     - source: <source_file>
       class_name: Locale
       plural_matcher: "-[0-9]+$"
-````
+```
+
+##### Using the generated class ans extensions in your flutter app
+```dart
+class ExampleWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text(Locale.word(cardinality: 5).translate(context));
+  }
+}
+```
 
 ### Json restrictions:
 
