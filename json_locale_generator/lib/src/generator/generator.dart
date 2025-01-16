@@ -8,6 +8,7 @@ import 'package:json_locale_generator/src/converter/json_parser.dart';
 import 'package:json_locale_generator/src/errors/invalid_json_format.dart';
 import 'package:json_locale_generator/src/generator/json_class_generator.dart';
 import 'package:json_locale_generator/src/model/resources.dart';
+import 'package:pub_semver/pub_semver.dart';
 
 /// Generation entry point
 Future<String> generate(BuildStep buildStep, Resources res) async {
@@ -52,5 +53,7 @@ Future<String> generate(BuildStep buildStep, Resources res) async {
     useNullSafetySyntax: true,
   );
 
-  return DartFormatter().format(fileToWrite.accept(emitter).toString());
+  return DartFormatter(
+    languageVersion: Version(3, 7, 0),
+  ).format(fileToWrite.accept(emitter).toString());
 }

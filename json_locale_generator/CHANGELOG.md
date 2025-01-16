@@ -1,3 +1,7 @@
+## 1.1.0
+* **Dependencies**: Upgrade dependencies to allow `analyzer 7.x.x`
+* **Tests**: Update tests
+
 ## 1.0.1
 * **Dependencies**: Downgrade `collection` package from `1.17.2` to `1.17.1` as `flutter_test` collection dependency is on `1.17.1`
 
