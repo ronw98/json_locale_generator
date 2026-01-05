@@ -20,7 +20,7 @@ Resources createResources(String package, Config config) {
 
 class JsonBuilder extends Builder {
   @override
-  FutureOr<void> build(BuildStep buildStep) async {
+  Future<void>? build(BuildStep buildStep) async {
     final input = buildStep.inputId;
 
     final output = AssetId(input.package, 'lib/jsons.dart');

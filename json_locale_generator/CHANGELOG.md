@@ -1,3 +1,6 @@
+## 1.3.0
+- Update `build` to `4.0.3`
+
 ## 1.2.0
 - Update `build` to `3.0.0`
 - Minimum sdk version bump to `1.2.0`
